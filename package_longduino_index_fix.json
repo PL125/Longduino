@@ -1,0 +1,88 @@
+{
+    "packages": [
+    {
+        "name": "Longduino",
+        "maintainer": "Sipeed",
+        "websiteURL": "https://www.sipeed.com",
+        "email": "bits@sipeed.com",
+        "help": {
+            "online": "https://www.sipeed.com"
+        },
+        "platforms": [
+            {
+                "category": "GD32V",
+                "name": "Longduino(GD32V)",
+                "version": "0.1.1",
+                "url": "http://bigbits.oss-cn-qingdao.aliyuncs.com/Arduino_for_GD32V/longduino-core-0.1.1.zip",
+                "checksum": "SHA-256:05D0A3B46D20F3E528C847229D1583A7209460AC94EFFB652DBEFEBF8C0CE969",
+                "archiveFileName": "longduino-core-0.1.1.zip",
+                "size": "263516",
+                "architecture": "gd32v",
+                "boards": [
+                    {"name": "Sipeed Longan Nano"},
+                    {"name": "GD32VF103 EVAL Board"}
+                ],
+                "toolsDependencies": [
+                    {
+                        "packager": "Longduino",
+                        "version": "9.2.0",
+                        "name": "riscv-nuclei-elf-gcc"
+                    },
+                    {
+                        "packager": "Longduino",
+                        "version": "0.1.1",
+                        "name": "openocd"
+                    },
+                    {
+                        "packager": "Longduino",
+                        "version": "0.1.0",
+                        "name": "gd32vflash"
+                    }
+                ]
+
+            }
+        ],
+        "tools": [
+            {
+                "version": "9.2.0",
+                "name":"riscv-nuclei-elf-gcc",
+                "systems": [
+                  {
+                    "url": "http://bigbits.oss-cn-qingdao.aliyuncs.com/Arduino_for_GD32V/riscv-nuclei-elf-gcc-9.2.0.zip",
+                    "checksum": "SHA-256:6BCED9A76D1D2A662F3F439ABA370290924A0482BB675317CFFEF05F7FC46E75",
+                    "host": "i686-mingw32",
+                    "archiveFileName": "riscv-nuclei-elf-gcc-9.2.0.zip",
+                    "size": "122883738"
+                  }
+                ]
+            },
+            {
+                "version": "0.1.1",
+                "name": "openocd",
+                "systems": [
+                  {
+                    "url": "http://bigbits.oss-cn-qingdao.aliyuncs.com/Arduino_for_GD32V/tools-openpcd-0.1.1.zip",
+                    "checksum": "SHA-256:45F5C0D471CC55CA04B778C181D486A6D977D35FEC20ECDCAB6F2CA4C0BFE565",
+                    "host": "i686-mingw32",
+                    "archiveFileName": "tools-openocd-0.1.1.zip",
+                    "size": "3025699"
+                  }
+                ]
+            },
+            {
+                "version": "0.1.0",
+                "name": "gd32vflash",
+                "systems": [
+                  {
+                    "url": "http://bigbits.oss-cn-qingdao.aliyuncs.com/Arduino_for_GD32V/gd32vflash-0.1.0.zip",
+                    "checksum": "SHA-256:EBD57FD52FD8144F14DA762F735485BE0DA7CC2C3496C5D4031AA3A88BE49C3B",
+                    "host": "i686-mingw32",
+                    "archiveFileName": "gd32vflash-0.1.0.zip",
+                    "size": "161256"
+                  }
+                ]
+            }
+        ]
+    }
+    ]
+}
