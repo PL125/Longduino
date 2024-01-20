@@ -1,11 +1,12 @@
 /*!
-    \file  gd32vf103_can.c
-    \brief CAN driver
+    \file    gd32vf103_can.c
+    \brief   CAN driver
     
     \version 2019-06-05, V1.0.0, firmware for GD32VF103
     \version 2019-11-27, V1.0.1, firmware for GD32VF103
     \version 2020-07-14, V1.0.2, firmware for GD32VF103
     \version 2020-08-04, V1.1.0, firmware for GD32VF103
+    \version 2020-12-14, V1.1.1, firmware for GD32VF103
 */
 
 /*
@@ -197,7 +198,7 @@ ErrStatus can_init(uint32_t can_periph, can_parameter_struct* can_parameter_init
         }else{
             CAN_CTL(can_periph) &= ~CAN_CTL_AWU;
         }
-        /* automatic retransmission mode disable*/
+        /* automatic retransmission mode disable */
         if(ENABLE == can_parameter_init->no_auto_retrans){
             CAN_CTL(can_periph) |= CAN_CTL_ARD;
         }else{
@@ -226,7 +227,7 @@ ErrStatus can_init(uint32_t can_periph, can_parameter_struct* can_parameter_init
         if(0U != timeout){
             flag = SUCCESS;
         }
-    }
+    }  
     return flag;
 }
 
@@ -969,19 +970,19 @@ void can_flag_clear(uint32_t can_periph, can_flag_enum flag)
     \retval     FlagStatus: SET or RESET
 */
 FlagStatus can_interrupt_flag_get(uint32_t can_periph, can_interrupt_flag_enum flag)
-{  
-	uint32_t ret1 = RESET;
-	uint32_t ret2 = RESET;
+{
+    uint32_t ret1 = RESET;
+    uint32_t ret2 = RESET;
     
     /* get the staus of interrupt flag */
-    if (flag == CAN_INT_FLAG_RFF0) {
+    if (flag == CAN_INT_FLAG_RFL0) {
         ret1 = can_receive_message_length_get(can_periph, CAN_FIFO0);
-    } else if (flag == CAN_INT_FLAG_RFF1) {
+    } else if (flag == CAN_INT_FLAG_RFL1) {
         ret1 = can_receive_message_length_get(can_periph, CAN_FIFO1);
     } else if (flag == CAN_INT_FLAG_ERRN) {
         ret1 = can_error_get(can_periph);
     } else {
-    ret1 = CAN_REG_VALS(can_periph, flag) & BIT(CAN_BIT_POS0(flag));
+        ret1 = CAN_REG_VALS(can_periph, flag) & BIT(CAN_BIT_POS0(flag));
     }
     /* get the staus of interrupt enale bit */
     ret2 = CAN_INTEN(can_periph) & BIT(CAN_BIT_POS1(flag));
